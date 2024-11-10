@@ -1,30 +1,32 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 )
 
-
+var (
+	status string
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "todo_app",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Short: "A Command Line Tool to Manage TODO Items",
+	Long:  `Exploring creation of Go projects and Cobra-CLI projects in particular.\nThis is just an exercise to explore some of the basics of Go.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		t, _ := cmd.Flags().GetBool("toggle")
+		fmt.Println("Value of Toggle: ", t)
+		m, _ := cmd.Flags().GetString("message")
+		fmt.Println("Message: ", m)
+		status, _ := cmd.PersistentFlags().GetString("status")
+		fmt.Println("Status: ", status)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -41,11 +43,10 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.todo_app.yaml)")
+	rootCmd.PersistentFlags().StringVar(&status, "status", "not-started", "Status of the TODO item")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.Flags().StringP("message", "m", "", "Message for the TODO item")
 }
-
-
