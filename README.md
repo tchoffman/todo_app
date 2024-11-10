@@ -25,3 +25,6 @@ More? Maybe need cobra-cli?
 ## Initialize Cobra
 `cobra-cli init`
 
+# Running a Go Application
+
+Can either compile and run the application directly via `go run main.go` or compile with `go build` and run the executable with `./<app-name>`.
