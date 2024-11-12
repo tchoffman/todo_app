@@ -8,7 +8,7 @@ import (
 	"log"
 
 	"github.com/spf13/cobra"
-	"github.com/tchoffman/todo_app/todo"
+	"github.com/tchoffman/tri/todo"
 )
 
 // listCmd represents the list command

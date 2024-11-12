@@ -16,7 +16,7 @@ var dataFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "todo_app",
+	Use:   "tri",
 	Short: "A Command Line Tool to Manage TODO Items",
 	Long:  `Exploring creation of Go projects and Cobra-CLI projects in particular.\nThis is just an exercise to explore some of the basics of Go.`,
 	Run: func(cmd *cobra.Command, args []string) {

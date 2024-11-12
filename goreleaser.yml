@@ -1,5 +1,5 @@
 build:
-  - binary: todo_app
+  - binary: tri
     goos:
       - darwin
       - linux
@@ -19,11 +19,11 @@ universal_binaries:
 
 brews:
   -
-    name: todo_app
-    homepage: https://github.com/tchoffman/todo_app
+    name: tri
+    homepage: https://github.com/tchoffman/tri
     tap:
       owner: tchoffman
-      name: homebrew-todo_app
+      name: homebrew-tri
     commit_author:
       name: tchoffman
       email: trenton.hoffman@gmail.com

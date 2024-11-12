@@ -1,4 +1,4 @@
-module github.com/tchoffman/todo_app
+module github.com/tchoffman/tri
 
 go 1.22.2
 
