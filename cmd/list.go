@@ -16,15 +16,17 @@ var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List Todos",
 	Long:  `List all Todo Items`,
-	Run: func(cmd *cobra.Command, args []string) {
+	Run:   listRun,
+}
 
-		items, err := todo.ReadItems(dataFile)
+func listRun(cmd *cobra.Command, args []string) {
 
-		if err != nil {
-			log.Printf("%v", err)
-		}
-		fmt.Println(items)
-	},
+	items, err := todo.ReadItems(dataFile)
+
+	if err != nil {
+		log.Printf("%v", err)
+	}
+	fmt.Println(items)
 }
 
 func init() {
