@@ -4,7 +4,6 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/spf13/cobra"
@@ -33,7 +32,7 @@ func addRun(cmd *cobra.Command, args []string) {
 	}
 	err = todo.SaveItems(dataFile, items)
 	if err != nil {
-		fmt.Errorf("%v", err)
+		log.Printf("%v", err)
 	}
 }
 
