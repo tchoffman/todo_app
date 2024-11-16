@@ -11,6 +11,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"github.com/tchoffman/tri/todo"
 )
 
@@ -29,7 +30,7 @@ var listCmd = &cobra.Command{
 
 func listRun(cmd *cobra.Command, args []string) {
 
-	items, err := todo.ReadItems(dataFile)
+	items, err := todo.ReadItems(viper.GetString("datafile"))
 	if err != nil {
 		log.Printf("%v", err)
 	}
