@@ -70,6 +70,13 @@ func (i *Item) Label() string {
 	return strconv.Itoa(i.Position) + "."
 }
 
+func (i *Item) PrettyDone() string {
+	if i.Done {
+		return "X"
+	}
+	return ""
+}
+
 // ByPri implements sort.Interface for []Item based on
 // the Priority and Position fields.
 type ByPri []Item
@@ -77,8 +84,11 @@ type ByPri []Item
 func (s ByPri) Len() int      { return len(s) }
 func (s ByPri) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
 func (s ByPri) Less(i, j int) bool {
-	if s[i].Priority == s[j].Priority {
-		return s[i].Position < s[j].Position
+	if s[i].Done != s[j].Done {
+		return s[i].Done
 	}
-	return s[i].Priority < s[j].Priority
+	if s[i].Priority != s[j].Priority {
+		return s[i].Priority < s[j].Priority
+	}
+	return s[i].Position < s[j].Position
 }
